@@ -21,7 +21,7 @@ services:
       DB_HOST: db
 
   db:
-    image: postgresql
+    image: postgres
     environment:
       - POSTGRESQL_USER=ps
       - POSTGRESQL_PASSWORD=password
@@ -29,7 +29,7 @@ services:
     ports:
       - '5432:5432'
     volumes:
-      - postgresql_data:/var/lib/postgresql/data
+      - postgres_volume:/var/lib/postgresql/data
 
   pgadmin:
     image: dpage/pgadmin4
@@ -54,6 +54,6 @@ services:
       - web
 
 volumes:
-  postgresql_data:
+  postgres_volume:
   tmp:
   public:
