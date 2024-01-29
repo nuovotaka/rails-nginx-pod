@@ -1,24 +1,44 @@
-# README
+Podman compose で Rails 環境を構築する。
+HOST：MacOS(intel)
+Podman desktop を利用します。こちらに関してはそれぞれ公式よりインストールしてください。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+こちらで使用する DB は`postgresql`です。
+クローン後のコマンドは下記です。
 
-Things you may want to cover:
+```
+podman compose build
+```
 
-* Ruby version
+```
+podman compose up -d
+```
 
-* System dependencies
+コンテナ内に入るコマンドが下記です。
 
-* Configuration
+```
+podman compose run web bash
+```
 
-* Database creation
+コンテナ内で下記のコマンドを実行します。
 
-* Database initialization
+```
+bin/rails db:create
+```
 
-* How to run the test suite
+コンテナを抜ける
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+exit
+```
 
-* Deployment instructions
+podman desktop で web のゴミを削除する
+`localhost:80`にアクセスすると初期画面が表示されると思います。
 
-* ...
+pgadmin4 でのアクセスは下記
+
+```
+メールアドレス：info@domain.com
+パスワード：password
+```
+
+となっています。
